@@ -1,0 +1,4 @@
+#!/bin/bash
+
+node thief-runner.js &
+node thief-daemon.js &
