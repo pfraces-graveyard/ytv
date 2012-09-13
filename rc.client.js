@@ -25,8 +25,9 @@ domready(function () {
           , i;
 
         for (i = 0; i < len; i++) {
-          view += '<li onClick="play(\'' + data[i].id + '\')">\n'
+          view += '<li>\n'
             + '<div class="list-item">\n'
+            + '<a href="/rc/' + data[i].id + '">\n'
             + '<div style="float:left; padding-right:5px">\n'
             + '<img src="' + data[i].thumb + '" />\n'
             + '</div>\n'
@@ -41,6 +42,7 @@ domready(function () {
             + '</ul>\n'
             + '</div>\n'
             + '<div style="clear:both"></div>\n'
+            + '</a>\n'
             + '</div>\n'
             + '</li>\n'
         }
@@ -48,10 +50,6 @@ domready(function () {
         document.getElementById("results").innerHTML = view;
       }); 
     }
-  };
-
-  g.play = function (id) {
-    rem.play(id);
   };
 
   d.on('remote', function (remote) {

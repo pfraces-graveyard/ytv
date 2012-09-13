@@ -15,9 +15,10 @@ reproducción de videos de youtube a través de control remoto
 
 todas las rutas parten de **http://localhost:3000**
 
-*   **/**     página de inicio
-*   **/rc**   control remoto
-*   **/tv**   reproductor
+*   **/**         página de inicio
+*   **/rc**       control remoto
+*   **/rc/{id}**  control remoto. detalle del video {id}
+*   **/tv**       reproductor
 
 # alojamiento
 

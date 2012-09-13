@@ -4677,41 +4677,31 @@ module.exports = function (value, replacer, space) {
 };
 });
 
-require.define("/tv.client.js",function(require,module,exports,__dirname,__filename,process){var domready = require('domready')
+require.define("/rc_detail.client.js",function(require,module,exports,__dirname,__filename,process){var domready = require('domready')
   , shoe = require('shoe')
   , dnode = require('dnode');
 
 domready(function () {
   var stream = shoe('/dnode')
+    , d = dnode()
+    , g = document
     , rem;
+  
+  g.play = function (id) {
+    rem.play(id);
+  };
 
-  var d = dnode({
-    play: function (id) {
-      if (ytplayer) {
-        ytplayer.loadVideoById(id, 0, 'default');
-      } else {
-        var params = {allowScriptAccess: "always"};
-        var atts = {id: "myytplayer"};
-        swfobject.embedSWF('http://www.youtube.com/v/' + id + '?enablejsapi=1'
-          + '&playerapiid=ytplayer&version=3&controls=0&autoplay=1', 
-          'ytapiplayer', '100%', '100%', '8', null, null, params, atts);
-      }
-    },
-    pause: function () {
-      if (ytplayer.getPlayerState() === 1) {
-        ytplayer.pauseVideo();
-      } else {
-        ytplayer.playVideo();
-      }
-    }
-  });
+  g.pause = function () {
+    rem.pause();
+  };
+
   d.on('remote', function (remote) {
-    remote.subscribe({type: 'tv'}, function () {
+    remote.subscribe({type: 'rc_detail'}, function () {
       rem = remote;
     });
   });
   d.pipe(stream).pipe(d);
 });
 });
-require("/tv.client.js");
+require("/rc_detail.client.js");
 })();

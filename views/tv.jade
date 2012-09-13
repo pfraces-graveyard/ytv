@@ -1,7 +1,15 @@
 extends layout
 
 block javascripts
+  script(src='http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js')
   script(src='/javascripts/tv.js')
+  script
+    var ytplayer;
+
+    function onYouTubePlayerReady (playerId) {
+      ytplayer = document.getElementById("myytplayer");
+    };
+
 
 block css
   link(rel='stylesheet', href='/stylesheets/tv.layout.css')
@@ -11,4 +19,5 @@ block header
 
 block content
   #content
-    p esperando video...
+    #ytapiplayer
+      p esperando video...

@@ -4,16 +4,26 @@ var domready = require('domready')
 
 domready(function () {
   var stream = shoe('/dnode')
-    , g = document
     , rem;
 
   var d = dnode({
     play: function (id) {
-      g.getElementById('content').innerHTML = ''
-        + '<embed src="https://www.youtube.com/v/' + id
-        + '?autoplay=1&controls=0&version=3" '
-        + 'type="application/x-shockwave-flash" allowfullscreen="true" '
-        + 'allowScriptAccess="always" width="100%" height="100%"></embed>';
+      if (ytplayer) {
+        ytplayer.loadVideoById(id, 0, 'default');
+      } else {
+        var params = {allowScriptAccess: "always"};
+        var atts = {id: "myytplayer"};
+        swfobject.embedSWF('http://www.youtube.com/v/' + id + '?enablejsapi=1'
+          + '&playerapiid=ytplayer&version=3&controls=0&autoplay=1', 
+          'ytapiplayer', '100%', '100%', '8', null, null, params, atts);
+      }
+    },
+    pause: function () {
+      if (ytplayer.getPlayerState() === 1) {
+        ytplayer.pauseVideo();
+      } else {
+        ytplayer.playVideo();
+      }
     }
   });
   d.on('remote', function (remote) {

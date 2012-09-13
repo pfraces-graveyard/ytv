@@ -34,8 +34,15 @@ app.get('/tv', function (req, res) {
   res.render('tv', {title: 'tv'});
 });
 
+app.get('/rc/:id', function (req, res) {
+  res.render('rc_detail', {
+    title: 'detalle',
+    id: req.params.id
+  });
+});
+
 app.get('/rc', function (req, res) {
-  res.render('rc', {title: 'rc'});
+  res.render('rc', {title: 'control remoto'});
 });
 
 server = http.createServer(app).listen(app.get('port'), function(){
@@ -104,6 +111,16 @@ sock = shoe(function (stream) {
       for (i = 0; i < clients.length; i++) {
         if (clients[i].type === 'tv') {
           clients[i].dnode.play(id);
+        }
+      }
+    };
+
+    this.pause = function () {
+      var i;
+
+      for (i = 0; i < clients.length; i++) {
+        if (clients[i].type === 'tv') {
+          clients[i].dnode.pause();
         }
       }
     };
