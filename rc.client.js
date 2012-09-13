@@ -26,20 +26,17 @@ domready(function () {
 
         for (i = 0; i < len; i++) {
           view += '<li onClick="play(\'' + data[i].id + '\')">\n'
-            + '<div style="margin:5px;padding:5px;background-color:white">\n'
-            + '<div style="float:left">\n'
+            + '<div class="list-item">\n'
+            + '<div style="float:left; padding-right:5px">\n'
             + '<img src="' + data[i].thumb + '" />\n'
             + '</div>\n'
-            + '<div style="float:left">\n'
-            + '<ul style="list-style-type:none;padding-left:5px">\n'
+            + '<div>\n'
+            + '<ul>\n'
             + '<li>\n'
             + '<strong>' + data[i].title + '</strong>'
             + '</li>\n'
             + '<li>\n'
             + data[i].seconds
-            + '</li>\n'
-            + '<li>\n'
-            + data[i].id
             + '</li>\n'
             + '</ul>\n'
             + '</div>\n'

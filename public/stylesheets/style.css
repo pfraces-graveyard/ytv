@@ -1,7 +1,15 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 17px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 a {
-  color: #00b7ff;
+  color: #0bf;
+}
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.list-item {
+  margin-top: 5px;
+  padding: 10px;
+  background-color: #eee;
 }
