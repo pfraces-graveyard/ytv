@@ -1,4 +1,0 @@
-#!/bin/bash
-
-node msgdispatcher.js &
-node webserver.js &
