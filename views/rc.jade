@@ -9,5 +9,7 @@ block css
 
 block content
   #content
-    input#searchinput(type='text', onkeypress='search(this, event)')
+    #search
+      input#searchinput(type='text', onkeypress='search(this, event)',
+        placeholder='escribe aquí para buscar videos!')
     #results

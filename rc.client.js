@@ -21,7 +21,7 @@ domready(function () {
     if (charCode == 13) {
       rem.ytvsearch(inField.value, 1, 5, function (data) {
         var len = data.length
-          , view = '<ul style="list-style-type:none;padding:0">\n'
+          , view = '<ul>\n'
           , i;
 
         for (i = 0; i < len; i++) {
