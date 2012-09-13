@@ -1,0 +1,16 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    block css
+  body
+    #header
+      block header
+        h1= title
+        p Bienvenido a #{title}!
+    #body
+      block content
+    #footer
+      block footer
+    block javascripts

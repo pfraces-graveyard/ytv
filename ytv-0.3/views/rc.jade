@@ -1,0 +1,13 @@
+extends layout
+
+block javascripts
+  script(src='/javascripts/rc.js')
+
+block css
+  link(rel='stylesheet', href='/stylesheets/rc.layout.css')
+  link(rel='stylesheet', href='/stylesheets/rc.style.css')
+
+block content
+  #content
+    input#searchinput(type='text', onkeypress='search(this, event)')
+    #results
