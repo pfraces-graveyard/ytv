@@ -5,7 +5,7 @@ youtube player with remote control
 # install
 
     $ git clone http://github.com/paufraces/ytv
-    $ npm install
+    # npm rebuild
 
 # run
 
