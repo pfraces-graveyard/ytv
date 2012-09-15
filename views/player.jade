@@ -2,7 +2,7 @@ extends layout
 
 block javascripts
   script(src='http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js')
-  script(src='/javascripts/tv.js')
+  script(src='/javascripts/player.js')
   script
     var ytplayer;
 
@@ -12,12 +12,12 @@ block javascripts
 
 
 block css
-  link(rel='stylesheet', href='/stylesheets/tv.layout.css')
-  link(rel='stylesheet', href='/stylesheets/tv.style.css')
+  link(rel='stylesheet', href='/stylesheets/player.layout.css')
+  link(rel='stylesheet', href='/stylesheets/player.style.css')
 
 block header
 
 block content
   #content
     #ytapiplayer
-      p esperando video...
+      p waiting for video...

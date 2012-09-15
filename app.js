@@ -30,19 +30,19 @@ app.get('/', function (req, res) {
   res.render('index', {title: 'ytv'});
 });
 
-app.get('/tv', function (req, res) {
-  res.render('tv', {title: 'tv'});
+app.get('/player', function (req, res) {
+  res.render('player', {title: 'player'});
 });
 
-app.get('/rc/:id', function (req, res) {
-  res.render('rc_detail', {
-    title: 'detalle',
+app.get('/id/:id', function (req, res) {
+  res.render('detail', {
+    title: 'detail',
     id: req.params.id
   });
 });
 
-app.get('/rc', function (req, res) {
-  res.render('rc', {title: 'control remoto'});
+app.get('/search', function (req, res) {
+  res.render('search', {title: 'search'});
 });
 
 server = http.createServer(app).listen(app.get('port'), function(){

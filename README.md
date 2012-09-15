@@ -1,28 +1,26 @@
 # ytv
 
-reproducción de videos de youtube a través de control remoto
+play youtube videos from a remote controller
 
-# instalar
+# install
 
     $ git clone http://github.com/paufraces/ytv
     # npm rebuild
 
-# ejecutar
+# run
 
     $ node app
 
-# rutas
+# routes
 
-todas las rutas parten de **http://localhost:3000**
+*   **/**         home
+*   **/search**   search for videos
+*   **/id/{id}**  video {id} detail with control functions
+*   **/player**       video player
 
-*   **/**         página de inicio
-*   **/rc**       control remoto
-*   **/rc/{id}**  control remoto. detalle del video {id}
-*   **/tv**       reproductor
+# hosting
 
-# alojamiento
-
-la aplicación esta alojada gratuitamente en heroku:
+thanks to heroku for the hosting
 
 *   [http://glacial-earth-8515.herokuapp.com]()
 

@@ -27,7 +27,7 @@ domready(function () {
         for (i = 0; i < len; i++) {
           view += '<li>\n'
             + '<div class="list-item">\n'
-            + '<a href="/rc/' + data[i].id + '">\n'
+            + '<a href="/id/' + data[i].id + '">\n'
             + '<div style="float:left; padding-right:5px">\n'
             + '<img src="' + data[i].thumb + '" />\n'
             + '</div>\n'

@@ -1,0 +1,15 @@
+extends layout
+
+block javascripts
+  script(src='/javascripts/search.js')
+
+block css
+  link(rel='stylesheet', href='/stylesheets/search.layout.css')
+  link(rel='stylesheet', href='/stylesheets/search.style.css')
+
+block content
+  #content
+    #search
+      input#searchinput(type='text', onkeypress='search(this, event)',
+        placeholder='looking for videos? write here!')
+    #results
