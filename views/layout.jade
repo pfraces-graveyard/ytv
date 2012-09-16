@@ -9,9 +9,21 @@ html
     title= title
   body
     #header
-      block header
-        h1: a(href='/')= title
-        p Welcome to #{title}, have fun!
+      #breadcrumb
+        .crumb: a(href='/') home
+        .separator
+          .head
+          .tail
+        .crumb: a(href='/search') search
+        .separator
+          .head
+          .tail
+        .crumb.last detail
+        .clear
+      #hbody
+        block header
+          h1: a(href='/')= title
+          p Welcome to #{title}, have fun!
     #body
       block content
     #footer
