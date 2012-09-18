@@ -14,7 +14,8 @@ block content
         input#searchinput(data-bind='value: terms, valueUpdate: "afterkeydown"',
           placeholder='looking for videos? write here!')
     #results
-      ul(data-bind='foreach: results, visible: results().length > 0')
+      ul(data-bind='template: { name: "result", foreach: results }')
+      script#result(type='text/html')
         li
           .list-item: a(data-bind='attr: {href: url}')
             .thumb: img(data-bind='attr: {src: thumb}')
