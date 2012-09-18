@@ -17,10 +17,15 @@ domready(function () {
   d.pipe(stream).pipe(d);
 
   function SearchResult (data) {
-    this.url = ko.observable('/id/' + data.id);
-    this.thumb = ko.observable(data.thumb);
-    this.title = ko.observable(data.title);
-    this.seconds = ko.observable(data.seconds);
+    var self = this;
+
+    self.url = ko.observable('/id/' + data.id);
+    self.thumb = ko.observable(data.thumb);
+    self.title = ko.observable(data.title);
+    self.seconds = ko.observable(data.seconds);
+    self.duration = ko.computed(function () {
+      return Math.floor(self.seconds() / 60) + ':' + (self.seconds() % 60);
+    });
   }
 
   function ViewModel() {
