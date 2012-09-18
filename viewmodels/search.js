@@ -27,15 +27,26 @@ domready(function () {
     var self = this;
 
     self.terms = ko.observable();
+    self.moreData = ko.observable(false);
     self.results = ko.observableArray([]);
 
-    self.search = function () {
-      server.ytvsearch(self.terms(), 1, 5, function (data) {
-        self.results([]);
+    self.getResults = function () {
+      var start = self.results().length + 1;
+      server.ytvsearch(self.terms(), start, function (data) {
+        if (!data.length) {
+          self.moreData(false);
+        }
+
         for (var k in data) {
           self.results.push(new SearchResult(data[k]));
         }
       });
+    };
+    
+    self.search = function () {
+      self.results([]);
+      self.moreData(true);
+      self.getResults();
     };
   };
   model = new ViewModel();

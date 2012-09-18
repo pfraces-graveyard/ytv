@@ -73,18 +73,20 @@ sock = shoe(function (stream) {
       cb();
     };
 
-    this.ytvsearch = function (terms, offset, count, cb) {
+    this.ytvsearch = function (terms, start, cb) {
+      var MAX_RESULTS = 5;
+
       var results = []
         , url = 'http://gdata.youtube.com/feeds/api/videos?'
           + 'q=' + terms.replace(' ', '+')
-          + '&start-index=' + offset
-          + '&max-results=' + count
+          + '&start-index=' + start
+          + '&max-results=' + MAX_RESULTS
           + '&v=2'
           + '&alt=json';
 
       webGet(url, function (data) {
         var res = JSON.parse(data)
-          , entry = res.feed.entry
+          , entry = res.feed.entry || []
           , entryCount = entry.length
           , i
           , itemRaw

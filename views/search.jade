@@ -24,3 +24,5 @@ block content
                 li.title(data-bind='text: title')
                 li(data-bind='text:seconds')
             .clear
+      a(data-bind='click: getResults, visible: moreData')
+        .list-item.button more results
