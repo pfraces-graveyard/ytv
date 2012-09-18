@@ -1,61 +1,42 @@
 var domready = require('domready')
   , shoe = require('shoe')
-  , dnode = require('dnode');
+  , dnode = require('dnode')
+  , ko = require('knockout-client');
 
 domready(function () {
   var stream = shoe('/dnode')
     , d = dnode()
-    , g = document
-    , rem;
+    , server
+    , model;
   
-  g.search = function (inField, e) {
-    var charCode;
-    
-    if (e && e.which) {
-      charCode = e.which;
-    } else if (window.event) {
-      e = window.event;
-      charCode = e.keyCode;
-    }
-
-    if (charCode == 13) {
-      rem.ytvsearch(inField.value, 1, 5, function (data) {
-        var len = data.length
-          , view = '<ul>\n'
-          , i;
-
-        for (i = 0; i < len; i++) {
-          view += '<li>\n'
-            + '<div class="list-item">\n'
-            + '<a href="/id/' + data[i].id + '">\n'
-            + '<div style="float:left; padding-right:5px">\n'
-            + '<img src="' + data[i].thumb + '" />\n'
-            + '</div>\n'
-            + '<div>\n'
-            + '<ul>\n'
-            + '<li>\n'
-            + '<strong>' + data[i].title + '</strong>'
-            + '</li>\n'
-            + '<li>\n'
-            + data[i].seconds
-            + '</li>\n'
-            + '</ul>\n'
-            + '</div>\n'
-            + '<div style="clear:both"></div>\n'
-            + '</a>\n'
-            + '</div>\n'
-            + '</li>\n'
-        }
-
-        document.getElementById("results").innerHTML = view;
-      }); 
-    }
-  };
-
   d.on('remote', function (remote) {
     remote.subscribe({type: 'rc'}, function () {
-      rem = remote;
+      server = remote;
     });
   });
   d.pipe(stream).pipe(d);
+
+  function SearchResult (data) {
+    this.url = ko.observable('/id/' + data.id);
+    this.thumb = ko.observable(data.thumb);
+    this.title = ko.observable(data.title);
+    this.seconds = ko.observable(data.seconds);
+  }
+
+  function ViewModel() {
+    var self = this;
+
+    self.terms = ko.observable();
+    self.results = ko.observableArray([]);
+
+    self.search = function () {
+      server.ytvsearch(self.terms(), 1, 5, function (data) {
+        for (var k in data) {
+          self.results.push(new SearchResult(data[k]));
+        }
+      });
+    };
+  };
+  model = new ViewModel();
+  ko.applyBindings(model);
 });

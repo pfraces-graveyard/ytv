@@ -7,7 +7,8 @@
     "stylus": "*",
     "domready": "*",
     "shoe": "*",
-    "dnode": "*"
+    "dnode": "*",
+    "knockout-client": "*"
   },
   "engines": {
     "node": "0.8.x",
