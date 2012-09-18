@@ -31,6 +31,7 @@ domready(function () {
 
     self.search = function () {
       server.ytvsearch(self.terms(), 1, 5, function (data) {
+        self.results([]);
         for (var k in data) {
           self.results.push(new SearchResult(data[k]));
         }
