@@ -24,5 +24,7 @@ block content
                 li.title(data-bind='text: title')
                 li(data-bind='text:seconds')
             .clear
-      a(data-bind='click: getResults, visible: moreData')
-        .list-item.button more results
+      #listFooter(data-bind='template: { name: "moreData", if: moreData }')
+      script#moreData(type='text/html')
+        a(data-bind='click: getResults)
+          .list-item.button more results
