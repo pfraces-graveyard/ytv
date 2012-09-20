@@ -1,6 +1,7 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
+  , routes = require('./services/routes.js')
   , ytv = require('./services/ytv.js');
 
 var app = express()
@@ -17,32 +18,13 @@ app.configure(function(){
   app.use(app.router);
   app.use(require('stylus').middleware(__dirname + '/public'));
   app.use(express.static(path.join(__dirname, 'public')));
-});
-
-app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', function (req, res) {
-  res.render('index', {title: 'ytv'});
-});
-
-app.get('/player', function (req, res) {
-  res.render('player', {title: 'player'});
-});
-
-app.get('/id/:id', function (req, res) {
-  res.render('detail', {
-    title: 'detail',
-    id: req.params.id
-  });
-});
-
-app.get('/search', function (req, res) {
-  res.render('search', {title: 'search'});
-});
+routes.install(app);
 
 server = http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
 ytv.install(server, '/dnode');
