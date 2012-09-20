@@ -5,10 +5,10 @@ var domready = require('domready')
 
 domready(function () {
   var stream = shoe('/dnode')
-    , d = dnode()
     , server
     , model;
-  
+
+  var d = dnode();
   d.on('remote', function (remote) {
     remote.subscribe({type: 'rc'}, function () {
       server = remote;

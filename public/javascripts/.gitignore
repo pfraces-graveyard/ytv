@@ -1,0 +1,6 @@
+# Javascript client code is defined in ../../viewmodels/
+# In this path shold be only that code browserified
+# See the README.md file for information
+
+# Ignore js files
+*.js

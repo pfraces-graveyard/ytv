@@ -3,13 +3,6 @@ extends layout
 block javascripts
   script(src='http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js')
   script(src='/javascripts/player.js')
-  script
-    var ytplayer;
-
-    function onYouTubePlayerReady (playerId) {
-      ytplayer = document.getElementById("myytplayer");
-    };
-
 
 block css
   link(rel='stylesheet', href='/stylesheets/player.layout.css')
@@ -18,6 +11,7 @@ block css
 block header
 
 block content
+  #alert
+    p(data-bind='text: message')
   #content
     #ytapiplayer
-      p waiting for video...

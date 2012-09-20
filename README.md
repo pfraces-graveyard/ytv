@@ -5,7 +5,9 @@ play youtube videos from a remote controller
 # install
 
     $ git clone http://github.com/paufraces/ytv
+    $ cd ytv
     # npm rebuild
+    $ ./browserify.sh
 
 # run
 
