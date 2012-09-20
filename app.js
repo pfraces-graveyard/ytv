@@ -1,11 +1,16 @@
 var express = require('express')
   , http = require('http')
   , path = require('path')
+  , bundler = require('./bundler.js')
   , routes = require('./services/routes.js')
   , ytv = require('./services/ytv.js');
 
 var app = express()
   , server;
+
+bundler.generate('player');
+bundler.generate('search');
+bundler.generate('detail');
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);

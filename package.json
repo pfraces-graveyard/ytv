@@ -2,16 +2,18 @@
   "name": "ytv",
   "version": "0.0.1",
   "dependencies": {
-    "express": "3.0.0rc3",
-    "jade": "*",
-    "stylus": "*",
-    "domready": "*",
-    "shoe": "*",
-    "dnode": "*",
-    "knockout-client": "*"
+    "express": "latest",
+    "jade": "latest",
+    "stylus": "latest",
+    "domready": "latest",
+    "shoe": "latest",
+    "dnode": "latest",
+    "knockout-client": "latest",
+    "browserify": "latest",
+    "uglify-js": "latest"
   },
   "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
+    "node": "latest",
+    "npm": "latest"
   }
 }
