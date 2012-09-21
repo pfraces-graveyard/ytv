@@ -1,3 +1,8 @@
+<Head:>
+  <meta http-equiv="Content-Type" content="text/html" charset="ytf-8" />
+  <meta name="viewport"
+        content="initial-scale=1.0, maximum-scale=1.0, user.scalable=0;" />
+
 <Title:>
   {{title}}
 
@@ -5,4 +10,26 @@
   <ui:connectionAlert>
 
 <Body:>
-  <h1>{{title}}</h1>
+  <div id="header">
+    <div id="breadcrumb">
+      <div class="crumb">
+        <a href="/">home</a>
+      </div>
+      <div class="separator">
+        <div class="head"></div>
+        <div class="tail"></div>
+      </div>
+      <div class="crumb">
+        <a href="/search">search</a>
+      </div>
+      <div class="separator">
+        <div class="head"></div>
+        <div class="tail"></div>
+      </div>
+      <div class="crumb last">detail</div>
+      <div class="clear"></div>
+    </div>
+    <div id="hbody">
+      <h1><a href="/">{{title}}</h1>
+    </div>
+  </div>
