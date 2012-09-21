@@ -1,19 +1,12 @@
 {
   "name": "ytv",
-  "version": "0.0.1",
+  "description": "",
+  "version": "0.0.0",
+  "main": "./server.js",
   "dependencies": {
-    "express": "latest",
-    "jade": "latest",
-    "stylus": "latest",
-    "domready": "latest",
-    "shoe": "latest",
-    "dnode": "latest",
-    "knockout-client": "latest",
-    "browserify": "latest",
-    "uglify-js": "latest"
+    "derby": "*",
+    "express": "3.0.0beta4",
+    "gzippo": ">=0.1.7"
   },
-  "engines": {
-    "node": "0.8.x",
-    "npm": "1.1.x"
-  }
+  "private": true
 }
